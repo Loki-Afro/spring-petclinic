@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: petclinic-argo-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: sc-cert-manager-clusterissuer-letsencrypt
+spec:
+  rules:
+  - host: petclinic.pwirth.hpi-schul-cloud.org
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: spring-petclinic
+          servicePort: 8080
+  tls:
+  - hosts:
+    - petclinic.pwirth.hpi-schul-cloud.org
+    secretName: petclinic-tls
