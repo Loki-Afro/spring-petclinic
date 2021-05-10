@@ -17,4 +17,4 @@ jobs:
           username: "Loki-Afro"
           password: ${{ secrets.GH_REGISTRY_SECRET }}
           repository: loki-afro/argocd/spring-petclinic
-          tags: ${GITHUB_SHA::8}
+          tags: ${{ GITHUB_SHA::8 }}
