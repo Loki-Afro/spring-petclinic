@@ -1,6 +1,8 @@
 FROM docker.io/library/maven:3.5-jdk-8-alpine
 WORKDIR /app
-COPY . /app
+COPY pom.xml /app/pom.xml
+RUN mvn dependency:resolve
+COPY src /app/src
 RUN mvn clean package
 
 FROM docker.io/library/openjdk:8-jre-alpine
@@ -12,4 +14,4 @@ COPY --from=0 /app/target/*.jar /app
 # .jar file name
 #RUN ls
 
-CMD ["java","-jar","spring-petclinic-2.2.0.BUILD-SNAPSHOT.jar"] 
+CMD ["java","-jar","spring-petclinic-2.4.5.jar"]
