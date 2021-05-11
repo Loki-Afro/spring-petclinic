@@ -1,0 +1,1 @@
+kubernetes/*secret* filter=git-crypt diff=git-crypt
