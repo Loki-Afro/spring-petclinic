@@ -7,11 +7,7 @@ RUN mvn clean package
 
 FROM docker.io/library/openjdk:8-jre-alpine
 WORKDIR /app
+RUN mkdir /app
 COPY --from=0 /app/target/*.jar /app
 
-# Uncomment the RUN line if the version has changed
-# Then use the output of docker build to modify the
-# .jar file name
-#RUN ls
-
-CMD ["java","-jar","spring-petclinic-2.4.5.jar"]
+CMD ["java","-jar","spring-petclinic-*.jar"]
