@@ -14,7 +14,7 @@ spec:
         app: spring-petclinic
     spec:
       containers:
-      - image: ghcr.io/loki-afro/spring-petclinic:latest
+      - image: ghcr.io/loki-afro/argocd/spring-petclinic:main
         name: spring-petclinic
         ports:
         - containerPort: 8080
