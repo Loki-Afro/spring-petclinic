@@ -7,7 +7,6 @@ RUN mvn clean package
 
 FROM docker.io/library/openjdk:8-jre-alpine
 WORKDIR /app
-RUN mkdir /app
-COPY --from=0 /app/target/*.jar /app
+COPY --from=0 /app/target/*.jar /app/spring-petclinic.jar
 
-CMD ["java","-jar","spring-petclinic-*.jar"]
+CMD ["java","-jar","spring-petclinic.jar"]
