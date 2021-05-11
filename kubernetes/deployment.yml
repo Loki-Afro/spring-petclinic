@@ -15,6 +15,7 @@ spec:
     spec:
       containers:
       - image: ghcr.io/loki-afro/argocd/spring-petclinic:main
+        imagePullPolicy: Always
         name: spring-petclinic
         ports:
         - containerPort: 8080
